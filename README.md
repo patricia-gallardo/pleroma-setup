@@ -2,7 +2,11 @@
 
 Based on https://docs-develop.pleroma.social/backend/installation/otp_en/
 
-## Create a droplet on Digital Ocean
+You will need an account on [Digital Ocean](https://www.digitalocean.com/)
+
+In the below there are some instances where you have to fill in your info. These are shown in brackets like this `<PUT YOUR TEXT HERE>` replace those with your text.
+
+## Create a droplet (a VM) on Digital Ocean
 
 * Region (close to you)
 * Ubuntu 20.04
@@ -12,16 +16,16 @@ Based on https://docs-develop.pleroma.social/backend/installation/otp_en/
 * Enable backups (+$0.80)
 * Give it a nice name
 
-The ip is in the list of droplets in Digital Ocean
+The IP is in the list of droplets in Digital Ocean
 
 ## Set up DNS
 
 In your DNS settings for your domain make an A record
 
-* Name: subdomain that you want to use for this
+* Name: subdomain that you want to use for this (example pleroma for pleroma.patricia.no)
 * Time to live (TTL) : 3600
 * Type: A
-* Content: IP of your droplet
+* Content: IP address of your droplet on Digital Ocean
 
 ## Ssh into the droplet
 
@@ -71,7 +75,7 @@ systemctl restart postgresql
 adduser --system --shell  /bin/false --home /opt/pleroma pleroma
 ~~~
 
-### 
+### Installing Pleroma
 
 ~~~bash
 export FLAVOUR="amd64"
@@ -125,6 +129,8 @@ Enter:
 * yes to anon names of files
 * yes to deduplication
 
+## Set up PostgreSQL database
+
 ~~~bash
 su postgres -s $SHELL -lc "psql -f /tmp/setup_db.psql"
 ~~~
@@ -149,7 +155,7 @@ sleep 20 && curl http://localhost:4000/api/v1/instance
 su pleroma -s $SHELL -lc "./bin/pleroma stop"
 ~~~
 
-Lets do our required reboot here
+## Lets do our required reboot here
 
 ~~~bash
 reboot
@@ -159,9 +165,13 @@ reboot
 ssh root@$IP
 ~~~
 
+## Getting Let's Encrypt SSL certificates
+
 ~~~bash
 systemctl stop nginx
 ~~~
+
+Example `pleroma.patricia.no`
 
 ~~~bash
 export DOMAIN=<DOMAIN FOR YOUR PLEROMA>
@@ -171,9 +181,11 @@ export DOMAIN=<DOMAIN FOR YOUR PLEROMA>
 certbot certonly --standalone --preferred-challenges http -d $DOMAIN
 ~~~
 
-* admin email address
+* Enter admin email address
 * Accept terms
 * Say no to emails
+
+## Setting up nginx
 
 ~~~bash
 cp /opt/pleroma/installation/pleroma.nginx /etc/nginx/sites-available/pleroma.conf
@@ -198,6 +210,8 @@ grep $DOMAIN /etc/nginx/sites-enabled/pleroma.conf
 nginx -t
 ~~~
 
+## Setting up a system service
+
 ~~~bash
 cp /opt/pleroma/installation/pleroma.service /etc/systemd/system/pleroma.service
 ~~~
@@ -209,6 +223,8 @@ systemctl start pleroma
 ~~~bash
 systemctl enable pleroma
 ~~~
+
+## Setting up auto-renew of the Let's Encrypt certificate
 
 ~~~bash
 mkdir -p /var/lib/letsencrypt
@@ -234,9 +250,13 @@ nginx -t
 systemctl restart nginx
 ~~~
 
+Ensure the webroot menthod and post hook is working
+
 ~~~bash
 certbot renew --cert-name $DOMAIN --webroot -w /var/lib/letsencrypt/ --dry-run --post-hook 'systemctl reload nginx'
 ~~~
+
+Create a script for a cron job
 
 ~~~bash
 echo '#!/bin/sh
@@ -244,13 +264,19 @@ certbot renew --cert-name example.tld --webroot -w /var/lib/letsencrypt/ --post-
 ' > /etc/cron.daily/renew-pleroma-cert
 ~~~
 
+Set the domain right in the script
+
 ~~~bash
 sed -i "s/example.tld/$DOMAIN/g" /etc/cron.daily/renew-pleroma-cert
 ~~~
 
+Make it executable
+
 ~~~bash
 chmod +x /etc/cron.daily/renew-pleroma-cert
 ~~~
+
+If everything worked the output should contain /etc/cron.daily/renew-pleroma-cert
 
 ~~~bash
 run-parts --test /etc/cron.daily
@@ -259,6 +285,8 @@ run-parts --test /etc/cron.daily
 ~~~bash
 cd /opt/pleroma
 ~~~
+
+## Create your first user and set as admin
 
 ~~~bash
 export ADMIN_USER=<USER NAME>
