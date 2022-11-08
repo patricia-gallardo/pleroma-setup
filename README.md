@@ -28,7 +28,7 @@ In your DNS settings for your domain make an A record
 Make a bash variable to hold your IP (replace IP address below)
 
 ~~~bash
-export IP=174.138.2.114
+export IP=<IP ADDRESS>
 ~~~
 
 ~~~bash
@@ -149,10 +149,124 @@ sleep 20 && curl http://localhost:4000/api/v1/instance
 su pleroma -s $SHELL -lc "./bin/pleroma stop"
 ~~~
 
-~~~bash
+Lets do our required reboot here
 
+~~~bash
+reboot
 ~~~
 
 ~~~bash
+ssh root@$IP
+~~~
+
+~~~bash
+systemctl stop nginx
+~~~
+
+~~~bash
+export DOMAIN=<DOMAIN FOR YOUR PLEROMA>
+~~~
+
+~~~bash
+certbot certonly --standalone --preferred-challenges http -d $DOMAIN
+~~~
+
+* admin email address
+* Accept terms
+* Say no to emails
+
+~~~bash
+cp /opt/pleroma/installation/pleroma.nginx /etc/nginx/sites-available/pleroma.conf
+ln -s /etc/nginx/sites-available/pleroma.conf /etc/nginx/sites-enabled/pleroma.conf
+~~~
+
+We will need to replace all of the `example.tld` in the config file
+
+~~~bash
+grep example.tld /etc/nginx/sites-enabled/pleroma.conf
+~~~
+
+~~~bash
+sed -i "s/example.tld/$DOMAIN/g" /etc/nginx/sites-enabled/pleroma.conf 
+~~~
+
+~~~bash
+grep $DOMAIN /etc/nginx/sites-enabled/pleroma.conf
+~~~
+
+~~~bash
+nginx -t
+~~~
+
+~~~bash
+cp /opt/pleroma/installation/pleroma.service /etc/systemd/system/pleroma.service
+~~~
+
+~~~bash
+systemctl start pleroma
+~~~
+
+~~~bash
+systemctl enable pleroma
+~~~
+
+~~~bash
+mkdir -p /var/lib/letsencrypt
+~~~
+
+Uncomment this section
 
 ~~~
+    # location ~ /\.well-known/acme-challenge {
+    #     root /var/lib/letsencrypt/;
+    # }
+~~~
+
+~~~bash
+nano /etc/nginx/sites-enabled/pleroma.conf
+~~~
+
+~~~bash
+nginx -t
+~~~
+
+~~~bash
+systemctl restart nginx
+~~~
+
+~~~bash
+certbot renew --cert-name $DOMAIN --webroot -w /var/lib/letsencrypt/ --dry-run --post-hook 'systemctl reload nginx'
+~~~
+
+~~~bash
+echo '#!/bin/sh
+certbot renew --cert-name example.tld --webroot -w /var/lib/letsencrypt/ --post-hook "systemctl reload nginx"
+' > /etc/cron.daily/renew-pleroma-cert
+~~~
+
+~~~bash
+sed -i "s/example.tld/$DOMAIN/g" /etc/cron.daily/renew-pleroma-cert
+~~~
+
+~~~bash
+chmod +x /etc/cron.daily/renew-pleroma-cert
+~~~
+
+~~~bash
+run-parts --test /etc/cron.daily
+~~~
+
+~~~bash
+cd /opt/pleroma
+~~~
+
+~~~bash
+export ADMIN_USER=<USER NAME>
+export ADMIN_EMAIL=<USER EMAIL ADDRESS>
+~~~
+
+~~~bash
+su pleroma -s $SHELL -lc "./bin/pleroma_ctl user new $ADMIN_USER $ADMIN_EMAIL --admin"
+~~~
+
+Copy URL, use it to set your password
