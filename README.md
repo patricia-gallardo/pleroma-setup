@@ -10,7 +10,7 @@ In the below there are some instances where you have to fill in your info. These
 
 * Region (close to you)
 * Ubuntu 20.04
-* Cheapest droplet $4/month (we'll try to upgrade it if needed)
+* Cheapest droplet $4/month ([we'll try to upgrade it if needed](resize_droplet.md))
 * Setup authentication method (will assume password below)
 * Add metrics and alerting (it's free)
 * Enable backups (+$0.80)
