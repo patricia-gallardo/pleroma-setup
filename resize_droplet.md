@@ -19,3 +19,8 @@ poweroff
 2. We'll try CPU and RAM only
 3. Will try the one for 6$ it has double the RAM (1G)
 4. Click `Resize`
+
+## Start up the droplet
+
+* Click on the droplet and in the left hand panel chose `Power`
+* Click on `Turn on`
