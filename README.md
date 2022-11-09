@@ -1,5 +1,13 @@
 # pleroma-setup
 
+## What does this look like?
+
+This instance was set up and altered using the instructions in this repo: https://pleroma.patricia.no/@patricia
+
+It uses a different frontend called Soapbox, but instructions on how to do that are also [here](Soapbox.md).
+
+## Instructions
+
 Based on https://docs-develop.pleroma.social/backend/installation/otp_en/
 
 You will need an account on [Digital Ocean](https://www.digitalocean.com/)
