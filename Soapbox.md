@@ -22,4 +22,7 @@ busybox unzip soapbox.zip -o -d /var/lib/pleroma
 
 Reload your instance web page
 
-Admin panel : https://$DOMAIN/soapbox/admin
+## Tweak settings
+
+* Go to the admin panel : https://$DOMAIN/soapbox/admin
+* Set Registrations as closed
