@@ -24,3 +24,7 @@ poweroff
 
 * Click on the droplet and in the left hand panel chose `Power`
 * Click on `Turn on`
+
+## Once it is up and looking good
+
+Consider deleting your snapshot since it costs money.
