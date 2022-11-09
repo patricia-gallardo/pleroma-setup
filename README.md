@@ -10,10 +10,10 @@ In the below there are some instances where you have to fill in your info. These
 
 * Region (close to you)
 * Ubuntu 20.04
-* Cheapest droplet $4/month ([we'll try to upgrade it if needed](resize_droplet.md))
+* Chose a droplet with at least 1GB of RAM ([we can also upgrade it if needed](resize_droplet.md))
 * Setup authentication method (will assume password below)
 * Add metrics and alerting (it's free)
-* Enable backups (+$0.80)
+* Enable backups (+20% of the price of the droplet)
 * Give it a nice name
 
 The IP is in the list of droplets in Digital Ocean
