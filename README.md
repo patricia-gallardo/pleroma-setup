@@ -383,3 +383,4 @@ Copy URL, use it to set your password
 
 * Change up the frontend? Try [Soapbox](Soapbox.md)
 * Add firewall rules [ufw (Uncomplicated Firewall)](Firewall.md)
+* Add regular user [User management](Users.md)
