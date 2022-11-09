@@ -58,28 +58,30 @@ ufw status
 Example output
 
 ~~~
-Status: active                                                   
-                                                                 
-To                         Action      From                      
---                         ------      ----                      
-OpenSSH                    ALLOW       Anywhere                  
-80                         ALLOW       Anywhere                  
-443                        ALLOW       Anywhere                  
+Status: active
+
+To                         Action      From
+--                         ------      ----
 22/tcp                     ALLOW       Anywhere                  
+OpenSSH                    ALLOW       Anywhere                  
 80/tcp                     ALLOW       Anywhere                  
 Nginx HTTP                 ALLOW       Anywhere                  
 443/tcp                    ALLOW       Anywhere                  
 Nginx HTTPS                ALLOW       Anywhere                  
 Nginx Full                 ALLOW       Anywhere                  
 25/udp                     ALLOW       Anywhere                  
-OpenSSH (v6)               ALLOW       Anywhere (v6)             
-80 (v6)                    ALLOW       Anywhere (v6)             
-443 (v6)                   ALLOW       Anywhere (v6)             
 22/tcp (v6)                ALLOW       Anywhere (v6)             
+OpenSSH (v6)               ALLOW       Anywhere (v6)             
 80/tcp (v6)                ALLOW       Anywhere (v6)             
 Nginx HTTP (v6)            ALLOW       Anywhere (v6)             
 443/tcp (v6)               ALLOW       Anywhere (v6)             
 Nginx HTTPS (v6)           ALLOW       Anywhere (v6)             
 Nginx Full (v6)            ALLOW       Anywhere (v6)             
-25/udp (v6)                ALLOW       Anywhere (v6)
+25/udp (v6)                ALLOW       Anywhere (v6)  
+~~~
+
+## Reboot
+
+~~~bash
+reboot
 ~~~
