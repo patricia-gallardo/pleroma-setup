@@ -17,7 +17,7 @@ poweroff
 
 1. Press the dots next to the droplet and choose `Resize droplet`
 2. We'll try CPU and RAM only
-3. Will try the one for 6$ it has double the RAM (1G)
+3. Chose the size you want, but have at least 1GB of RAM
 4. Click `Resize`
 
 ## Start up the droplet
