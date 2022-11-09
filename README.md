@@ -298,3 +298,7 @@ su pleroma -s $SHELL -lc "./bin/pleroma_ctl user new $ADMIN_USER $ADMIN_EMAIL --
 ~~~
 
 Copy URL, use it to set your password
+
+## Where do we go from here?
+
+* Change up the frontend? Try [Soapbox](Soapbox.md)
