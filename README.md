@@ -385,3 +385,4 @@ Copy URL, use it to set your password
 * Add cloud firewall rules [Digital Ocean Cloud Firewall](CloudFirewall.md)
 * Add firewall rules [ufw (Uncomplicated Firewall)](Firewall.md)
 * Add regular user [User management](Users.md)
+* Block Domains of bad actors with [Message Rewrite Facility (MRF)](DomainBlocking.md)
