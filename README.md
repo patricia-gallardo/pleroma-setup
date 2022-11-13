@@ -178,6 +178,8 @@ su pleroma -s $SHELL -lc "./bin/pleroma_ctl migrate --migrations-path priv/repo/
 su pleroma -s $SHELL -lc "./bin/pleroma daemon"
 ~~~
 
+You might try this following one a couple of times, it's just to test that the site is up
+
 ~~~bash
 sleep 20 && curl http://localhost:4000/api/v1/instance
 ~~~
