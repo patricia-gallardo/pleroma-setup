@@ -15,8 +15,12 @@ See also docs: https://docs.pleroma.social/backend/configuration/mrf/#using-simp
 
 * [mastodon.social](https://mastodon.social/about#unavailable-content)
 * [weirderearth](https://raw.githubusercontent.com/weirderearth/weirder-rules/main/suggested-instance-blocks.md)
-* [hachyderm](https://raw.githubusercontent.com/hachyderm/hack/main/blocklist)
+* [hachyderm.io](https://raw.githubusercontent.com/hachyderm/hack/main/blocklist)
 * [FediBlock](https://joinfediverse.wiki/FediBlock)
+
+### API blocklists
+
+* [mastodon.social](https://mastodon.social/api/v1/instance/domain_blocks)
 
 ### Hate Speech
 
