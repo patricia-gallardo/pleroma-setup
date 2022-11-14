@@ -8,7 +8,69 @@ See also docs: https://docs.pleroma.social/backend/configuration/mrf/#using-simp
 * In `Reject` add all domains to block
 * Press submit button
 
-Restart Pleroma
+## Suggestions
+
+### Public blocklists
+
+* [mastodon.social](https://mastodon.social/about#unavailable-content)
+* [weirderearth](https://raw.githubusercontent.com/weirderearth/weirder-rules/main/suggested-instance-blocks.md)
+* [hachyderm](https://raw.githubusercontent.com/hachyderm/hack/main/blocklist)
+* [FediBlock](https://joinfediverse.wiki/FediBlock)
+
+### Hate Speech
+
+~~~
+bae.st
+beefyboys.win
+cachapa.moe
+chudbuds.lol
+detroitriotcity.com
+eientei.org
+eveningzoo.club
+freecumextremist.com
+freesoftwareextremist.com
+freespeechextremist.com
+gearlandia.haus
+qoto.org
+hunk.city
+leafposter.club
+mugicha.club
+nicecrew.digital
+poa.st
+rdrama.cc
+ryona.agency
+seal.cafe
+shitpost.cloud
+shortstackran.ch
+sleepy.cafe
+sneed.social
+strelizia.net
+yggdrasil.social
+~~~
+
+### Harassment
+
+~~~
+bitcoinhackers.org
+gab.ai
+gab.com
+iddqd.social
+kiwifarms.cc
+kiwifarms.is
+kiwifarms.net
+noagendasocial.com
+shitposter.club
+truthsocial.com
+~~~
+
+### Transphobia
+
+~~~
+gleasonator.com
+spinster.xyz
+~~~
+
+## Restart Pleroma
 
 ~~~bash
 systemctl restart pleroma
