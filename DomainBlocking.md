@@ -28,17 +28,21 @@ See also docs: https://docs.pleroma.social/backend/configuration/mrf/#using-simp
 bae.st
 beefyboys.win
 cachapa.moe
+chickenfan.club
 chudbuds.lol
+crlf.ninja
 detroitriotcity.com
 eientei.org
 eveningzoo.club
 freecumextremist.com
 freesoftwareextremist.com
 freespeechextremist.com
+gameliberty.club
 gearlandia.haus
 qoto.org
 hunk.city
 leafposter.club
+masochi.st
 mugicha.club
 nicecrew.digital
 poa.st
@@ -50,6 +54,8 @@ shortstackran.ch
 sleepy.cafe
 sneed.social
 strelizia.net
+troll.cafe
+varishangout.net
 yggdrasil.social
 ~~~
 
@@ -66,6 +72,7 @@ kiwifarms.net
 noagendasocial.com
 shitposter.club
 truthsocial.com
+truthsocial.co.in
 ~~~
 
 ### Transphobia
