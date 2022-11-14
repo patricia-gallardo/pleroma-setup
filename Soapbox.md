@@ -35,3 +35,9 @@ Reload your instance web page
 * Turn on `Single user mode`
 * Put in users @
 * Scroll down and click save
+
+### Update logo
+
+* Go to the Soapbox config (link in the upper right corner) : https://$DOMAIN/soapbox/config
+* Upload logo
+* Scroll down and click save
