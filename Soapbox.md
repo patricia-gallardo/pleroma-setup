@@ -55,3 +55,16 @@ Instructions
 * It should save automatically
 * Reload the page
 * Test by clicking the `Compose` button and check that there isn't a globe there
+
+### Fix Instance Details
+
+* Go to Instance settings in Pleroma admin: https://$DOMAIN/pleroma/admin/#/settings/instance
+* Fix up `Name and other bits you feel are wrong
+* Press submit (Ignore any error)
+
+### Fix Instance Thumbnail
+
+* Go to Instance settings in Pleroma admin: https://$DOMAIN/pleroma/admin/#/settings/instance
+* Scroll down to `Instance thumbnail`
+* Upload new thumbnail
+* Press submit (Ignore any error)
