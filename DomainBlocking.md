@@ -6,6 +6,7 @@ See also docs: https://docs.pleroma.social/backend/configuration/mrf/#using-simp
 * UI : `https://<DOMAIN>/pleroma/admin/#/settings/mrf`
 * In `Policies` add `SimplePolicy`
 * In `Reject` add all domains to block
+* Note: If you add a domain a second time it removes it, so check carefully when adding, it should be added at the end
 * Press submit button
 
 ## Suggestions
