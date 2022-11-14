@@ -24,5 +24,14 @@ Reload your instance web page
 
 ## Tweak settings
 
-* Go to the admin panel : https://$DOMAIN/soapbox/admin
+### Close registrations
+
+* Go to the soapbox admin panel (More > Dashboard) : https://$DOMAIN/soapbox/admin
 * Set Registrations as closed
+
+### For single user
+
+* Go to the Soapbox config (link in the upper right corner) : https://$DOMAIN/soapbox/config
+* Turn on `Single user mode`
+* Put in users @
+* Scroll down and click save
