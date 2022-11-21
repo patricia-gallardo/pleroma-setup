@@ -25,7 +25,7 @@ Alternatives:
 
 ## Step NP
 
-### Prep New Pleroma 
+### Prep New Pleroma
 
 * Through the API: https://gist.github.com/bodil/7b896079ad1e76859cb43ee53d407524
 
@@ -50,7 +50,8 @@ TODO
 
 #### Soapbox frontend
 
-As far as I can see there is no UI (at least not in Soapbox) to do this, so we will have to do it through the API instead.
+As far as I can see there is no UI (at least not in Soapbox) to do this, so we will have to do it through the API
+instead.
 
 TODO
 
