@@ -39,7 +39,6 @@ freesoftwareextremist.com
 freespeechextremist.com
 gameliberty.club
 gearlandia.haus
-qoto.org
 hunk.city
 leafposter.club
 masochi.st
